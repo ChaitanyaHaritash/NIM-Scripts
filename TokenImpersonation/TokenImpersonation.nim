@@ -58,7 +58,7 @@ proc toString(chars: openArray[WCHAR]): string =
             break
         result.add(cast[char](c))
 
-proc GetLsassPid(): int =
+proc GetProcPid(): int =
     var 
         entry: PROCESSENTRY32
         hSnapshot: HANDLE
@@ -74,7 +74,7 @@ proc GetLsassPid(): int =
 
     return 0
 
-let processId: int = GetLsassPid()
+let processId: int = GetProcPid()
 
 #Get WinLogon.exe PID
 if not bool(processId):
